@@ -1,0 +1,58 @@
+.post-card {
+  margin-bottom: 20px;
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  background-color: #fff;
+}
+
+.post-card .post-title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.post-card .post-details {
+  color: #555;
+}
+
+.comments-heading {
+  font-size: 24px;
+  font-weight: bold;
+  margin-top: 30px;
+  margin-bottom: 10px;
+}
+
+.comment-card {
+  margin-bottom: 20px;
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  background-color: #f7f7f7;
+}
+
+.comment-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.comment-username {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.comment-email {
+  font-size: 14px;
+  color: #777;
+}
+
+.comment-body {
+  font-size: 16px;
+  color: #555;
+}
+.headerrr{
+        margin-top: 23px;
+}

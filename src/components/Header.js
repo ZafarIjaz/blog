@@ -26,14 +26,22 @@ const Header = () => {
     <div>
       <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
         <Container>
-          <Navbar.Brand href="/">Blog App</Navbar.Brand>
+          <Navbar.Brand>
+            <Link to="/" style={{ textDecoration: "none" }}>
+              Blog App
+            </Link>
+          </Navbar.Brand>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
 
           <Navbar.Collapse id="responsive-navbar-nav">
             {username && (
               <Nav className="me-auto">
                 <Nav.Link onClick={handlePostLinkClick}>Post</Nav.Link>
-                <Nav.Link href="/Post">State Handling</Nav.Link>
+                <Nav.Link>
+                  <Link to="/Post" style={{ textDecoration: "none" }}>
+                    State Handling
+                  </Link>
+                </Nav.Link>
               </Nav>
             )}
             <Nav>

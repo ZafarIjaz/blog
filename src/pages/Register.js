@@ -39,11 +39,11 @@ const RegisterPage = () => {
     <>
       <Header />
       <Container>
-        <h1>Register</h1>
+        <h1 className="mt-4">Register</h1>
         {showError && (
           <Alert variant="danger">Please fill in all fields.</Alert>
         )}
-        <Form onSubmit={handleSubmit}>
+        <Form onSubmit={handleSubmit} className="mt-4">
           <Form.Group controlId="name">
             <Form.Label>Name</Form.Label>
             <Form.Control
@@ -74,7 +74,7 @@ const RegisterPage = () => {
             />
           </Form.Group>
 
-          <Button variant="primary" type="submit">
+          <Button variant="primary" type="submit" className="mt-3">
             Register
           </Button>
         </Form>

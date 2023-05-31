@@ -4,64 +4,58 @@ import { getPostById } from "../Services/Post";
 import { getCommentsByPostId } from "../Services/Comment";
 import { useParams } from "react-router-dom";
 import Header from "../components/Header";
-import Loadar from "../components/Spinner";
+import Loader from "../components/Spinner";
+import "./SinglePost.css";
 
-// Comment component
-
-// SinglePost component
 const SinglePost = () => {
-  const { id } = useParams(); // Retrieve the post ID from the params
-  console.log(id);
+  const { id } = useParams();
   const [post, setPost] = useState(null);
   const [comments, setComments] = useState([]);
 
   useEffect(() => {
-    // Fetch the post by its ID
     getPostById(id)
       .then((response) => {
-        setPost(response.data); // Assuming the response contains the post data
+        setPost(response.data);
       })
       .catch((error) => {
         console.error("Error fetching post:", error);
       });
 
-    // Fetch the comments for the post
     getCommentsByPostId(id)
       .then((response) => {
-        setComments(response.data); // Assuming the response contains the comments data
+        setComments(response.data);
       })
       .catch((error) => {
         console.error("Error fetching comments:", error);
       });
-  }, [id]); // Dependency on postId to re-run the effect when it changes
+  }, [id]);
 
   if (!post) {
-    return <Loadar />; // Render a loading state while fetching the post
+    return <Loader />;
   }
 
   return (
     <>
       <Header />
       <Container>
-        <Card>
+        <Card className="post-card headerrr">
           <Card.Body>
-            <h1>SinglePost</h1>
-            <Card.Title>{post.title}</Card.Title>
-            <Card.Text>{post.content}</Card.Text>
+            <h1 className="post-title">Single Post</h1>
+            <Card.Title className="post-details">{post.title}</Card.Title>
+            <Card.Text className="post-details">{post.content}</Card.Text>
           </Card.Body>
         </Card>
 
-        <h2>Comments</h2>
-        {comments.map((comments) => (
-          <Col key={comments.id} md={6}>
-            <Card>
+        <h2 className="comments-heading">Comments</h2>
+        {comments.map((comment) => (
+          <Col key={comment.id} md={6}>
+            <Card className="comment-card">
               <Card.Body>
-                <h3>Name of user who comment</h3>
-                <Card.Title>{comments.name}</Card.Title>
-                <h3>Email</h3>
-                <Card.Title>{comments.email}</Card.Title>
-                <h3>Comment</h3>
-                <Card.Text>{comments.body}</Card.Text>
+                <div className="comment-header">
+                  <span className="comment-email">{comment.email}</span>
+                </div>
+                <hr />
+                <p className="comment-body">{comment.body}</p>
               </Card.Body>
             </Card>
           </Col>

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Form, Button, Modal } from "react-bootstrap";
+import { createPost } from "../Services/Post";
 
 const CreatePostPage = ({ showModal, handleModalClose }) => {
   const [title, setTitle] = useState("");
@@ -13,16 +14,20 @@ const CreatePostPage = ({ showModal, handleModalClose }) => {
     setBody(e.target.value);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Perform post creation logic here
-    console.log("New post created:", { title, body });
+    try {
+      const response = await createPost(title, body);
+      console.log("New post created:", response);
 
-    // Reset the form
-    setTitle("");
-    setBody("");
-    handleModalClose();
+      // Reset the form
+      setTitle("");
+      setBody("");
+      handleModalClose();
+    } catch (error) {
+      console.error("Error creating post:", error);
+    }
   };
 
   return (

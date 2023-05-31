@@ -11,11 +11,6 @@ const router = createBrowserRouter([
     path: "/",
     element: <Homepage />,
   },
-
-  {
-    path: "posts/:id",
-    element: <SinglePost />,
-  },
   {
     path: "/login",
     element: <Login />,
@@ -24,13 +19,18 @@ const router = createBrowserRouter([
     path: "/register",
     element: <RegisterPage />,
   },
+
   {
-    path: "/CreatePostPage",
-    element: <CreatePostPage />,
+    path: "posts/:id",
+    element: <SinglePost />,
   },
   {
     path: "/Post",
     element: <App />,
+  },
+  {
+    path: "/CreatePostPage",
+    element: <CreatePostPage />,
   },
 ]);
 

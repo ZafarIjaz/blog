@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Container, Form, Button, Alert } from "react-bootstrap";
 import Header from "../components/Header";
+import "./Login.css"; // Import custom CSS for styling
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -56,35 +57,37 @@ const Login = () => {
     <>
       <Header />
       <Container>
-        <h1>Login</h1>
-        {showError && (
-          <Alert variant="danger">Invalid email or password.</Alert>
-        )}
-        <Form onSubmit={handleSubmit}>
-          <Form.Group controlId="email">
-            <Form.Label>Email address</Form.Label>
-            <Form.Control
-              type="email"
-              placeholder="Enter email"
-              value={email}
-              onChange={handleEmailChange}
-            />
-          </Form.Group>
+        <div className="login-container">
+          <h1>Login</h1>
+          {showError && (
+            <Alert variant="danger">Invalid email or password.</Alert>
+          )}
+          <Form onSubmit={handleSubmit}>
+            <Form.Group controlId="email">
+              <Form.Label>Email address</Form.Label>
+              <Form.Control
+                type="email"
+                placeholder="Enter email"
+                value={email}
+                onChange={handleEmailChange}
+              />
+            </Form.Group>
 
-          <Form.Group controlId="password">
-            <Form.Label>Password</Form.Label>
-            <Form.Control
-              type="password"
-              placeholder="Password"
-              value={password}
-              onChange={handlePasswordChange}
-            />
-          </Form.Group>
+            <Form.Group controlId="password">
+              <Form.Label>Password</Form.Label>
+              <Form.Control
+                type="password"
+                placeholder="Password"
+                value={password}
+                onChange={handlePasswordChange}
+              />
+            </Form.Group>
 
-          <Button variant="primary" type="submit">
-            Login
-          </Button>
-        </Form>
+            <Button variant="primary" type="submit">
+              Login
+            </Button>
+          </Form>
+        </div>
       </Container>
     </>
   );
