@@ -1,27 +1,24 @@
-import axios from "axios";
-
-const BASE_URL = "https://jsonplaceholder.typicode.com";
-
+import api from "./api";
 export const getPosts = () => {
-  return axios.get(`${BASE_URL}/posts`);
+  return api.get(`posts`);
 };
 
 export const getPostById = (postId) => {
-  return axios.get(`${BASE_URL}/posts/${postId}`);
+  return api.get(`/posts/${postId}`);
 };
 
 export const createPost = (postData) => {
-  return axios.post(`${BASE_URL}/posts`, postData);
+  return api.post(`/posts`, postData);
 };
 
 export const updatePostById = (postId, postData) => {
-  return axios.put(`${BASE_URL}/posts/${postId}`, postData);
+  return api.put(`/posts/${postId}`, postData);
 };
 
 export const updatePartialPostById = (postId, postData) => {
-  return axios.patch(`${BASE_URL}/posts/${postId}`, postData);
+  return api.patch(`/posts/${postId}`, postData);
 };
 
 export const deletePostById = (postId) => {
-  return axios.delete(`${BASE_URL}/posts/${postId}`);
+  return api.delete(`/posts/${postId}`);
 };

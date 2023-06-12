@@ -1,13 +1,7 @@
 import React, { useState } from "react";
 import { Container, Form, Button, Alert } from "react-bootstrap";
-import Header from "../components/Header";
-
-const RegisterPage = () => {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [showError, setShowError] = useState(false);
-
+import Header from "../../components/Header";
+function newFunction(setName, setEmail, setPassword) {
   const handleNameChange = (e) => {
     setName(e.target.value);
   };
@@ -19,6 +13,17 @@ const RegisterPage = () => {
   const handlePasswordChange = (e) => {
     setPassword(e.target.value);
   };
+  return { handleNameChange, handleEmailChange, handlePasswordChange };
+}
+
+const RegisterPage = () => {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [showError, setShowError] = useState(false);
+
+  const { handleNameChange, handleEmailChange, handlePasswordChange } =
+    newFunction(setName, setEmail, setPassword);
 
   const handleSubmit = (e) => {
     e.preventDefault();

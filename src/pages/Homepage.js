@@ -1,6 +1,6 @@
 import React from "react";
 import Header from "../components/Header";
-import Allposts from "../pages/Allposts";
+import Allposts from "../pages/Allposts/Allposts";
 const Homepage = () => {
   return (
     <div>

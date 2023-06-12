@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Form, Button, Modal } from "react-bootstrap";
-import { createPost } from "../Services/Post";
+import { createPost } from "../../Services/Post";
 
 const CreatePostPage = ({ showModal, handleModalClose }) => {
   const [title, setTitle] = useState("");
